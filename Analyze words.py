@@ -12,4 +12,4 @@ for i in word_list:
             same_letters += 1
     if same_letters  == 1:
         unique_letters += 1
-print('Кол-во уникальных букв:', unique_letters)
+print('Количество уникальных букв:', unique_letters)

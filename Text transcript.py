@@ -13,13 +13,10 @@ text = 'vujgvmCfb tj ufscfu ouib z/vhm jdjuFyqm jt fscfuu uibo jdju/jnqm fTjnqm 
 'bnftqbdftO bsf pof ipoljoh sfbuh efbj .. fu(tm pe psfn gp tf"uip'.split()
 # написан шифр цезаря, где символы сдвинуты на позицию влево, также в словах изменен порядок слов.
 
-# алфавит англ
-letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' # алфавит английских букв
 
-# расшифровка
-def decryption(messege):
-  # новая строка
-  translation = ''
+def decryption(messege): # функция расшифровки
+  translation = '' # новая строка
   for i_word in messege:
     if i_word in letters:
       num_index = letters.find(i_word)
@@ -28,20 +25,16 @@ def decryption(messege):
       translation += i_word
   return translation
 
-# функция сдвига на 3 символа
-def shift(text, num_shift):
+def shift(text, num_shift): # функция сдвига на 3 символа
   num_word = len(text)
   shift = num_shift % num_word
   text = text[-shift:] + text[:-shift]
   return text
 
-# создаем новый список
-new_text = []
-# сдвиг на 3
-num_shift = 3
+new_text = [] # создаем новый список
+num_shift = 3 # сдвиг на 3
 
-# проходимся по списку
-for i_word in text:
+for i_word in text: # проходимся циклом по списку
   text_decryption = decryption(i_word)
   shift_text = shift(text_decryption, num_shift)
   if shift_text.endswith('/'):
@@ -50,8 +43,7 @@ for i_word in text:
   else:
     new_text.append(shift_text)
 
-# объединяем все
-new_text = ' '.join(new_text)
+new_text = ' '.join(new_text) # объединяем все
 
 # заменяем символы
 new_text = new_text.replace('+', '*')
